@@ -91,4 +91,4 @@ jobs:
               export HIVE_PORT=5150
               export PROJ_NAME="dev"
             fi
-            sudo -E docker-compose -p $PROJ_NAME up -d --pull always
+            sudo docker compose -p $PROJ_NAME up -d --pull always
