@@ -61,7 +61,7 @@ jobs:
         run: |
           docker build -t $REGISTRY/hiveemulator/communication-control:$TAG -f src/CommunicationControl/DevOpsProject/Dockerfile src/CommunicationControl/DevOpsProject
           docker build -t $REGISTRY/hiveemulator/hive-mind:$TAG -f src/CommunicationControl/DevOpsProject.HiveMind.API/Dockerfile src/CommunicationControl/DevOpsProject.HiveMind.API
-          docker build -t $REGISTRY/hiveemulator/map-client:$TAG -f src/MapClient/Dockerfile src/MapClient
+          docker build --build-arg VITE_API_BASE_URL="http://${{ secrets.EC2_HOST }}:8080/api/v1/client" -t $REGISTRY/hiveemulator/map-client:$TAG -f src/MapClient/Dockerfile src/MapClient
           docker push $REGISTRY/hiveemulator/communication-control:$TAG
           docker push $REGISTRY/hiveemulator/hive-mind:$TAG
           docker push $REGISTRY/hiveemulator/map-client:$TAG
