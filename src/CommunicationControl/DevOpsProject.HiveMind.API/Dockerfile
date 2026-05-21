@@ -9,4 +9,4 @@ COPY --chown=appuser:appuser published/ ./
 USER appuser
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "DevOpsProject.CommunicationControl.API.dll"]
+ENTRYPOINT ["dotnet", "DevOpsProject.HiveMind.API.dll"]
